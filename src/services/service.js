@@ -14,13 +14,13 @@ async function fetchData(requestBody) {
       Authorization: localStorage.getItem(tokenKey)
     }
   });
-  console.log("res di service", res);
+  // console.log("res di service", res);
   if (res.status >= 400 && res.status < 500) {
     return SwalAlert.warning(`${res.status} ${res.statusText}`, "error");
   }
   return res.json();
 }
-// TUJUAN: MAU SERACH USER DI SERACPESON COMPONENT
+
 export function getUser(propsUsername) {
   const username = JSON.stringify(propsUsername).toLowerCase();
   const requestBody = {
@@ -252,7 +252,7 @@ export function deleteComment(id) {
 export function getCurrentUser() {
   try {
     const jwt = localStorage.getItem(tokenKey);
-    console.log(jwtDecode(jwt));
+    // console.log(jwtDecode(jwt));
     return jwtDecode(jwt);
   } catch (ex) {
     return null;

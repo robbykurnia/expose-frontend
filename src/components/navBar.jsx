@@ -22,7 +22,7 @@ class NavBar extends Component {
   }
 
   onKeyDown = e => {
-    console.log(e.key);
+    // console.log(e.key);
     if (e.key === "Enter") {
       e.preventDefault();
       if (this.state.searchInput.length === 0) return;
@@ -51,7 +51,7 @@ class NavBar extends Component {
   };
 
   onClickInput = () => {
-    console.log("onClickInput");
+    // console.log("onClickInput");
     this.setState({ onClickInput: true });
   };
 
@@ -106,8 +106,8 @@ class NavBar extends Component {
 
   render() {
     const { user } = this.props;
-    console.log("this.state.persons", this.state.persons);
-    console.log("this.state.persons.onMouseLeave", this.state.onMouseLeave);
+    // console.log("this.state.persons", this.state.persons);
+    // console.log("this.state.persons.onMouseLeave", this.state.onMouseLeave);
 
     return (
       <nav
@@ -130,24 +130,25 @@ class NavBar extends Component {
             EXPOSE
           </Link>
           {/* Visible only on xs */}
-
-          <button
-            type="button"
-            className="btn p-0 m-0 d-flex align-items-center pr-2 pl-0 pb-1 pt-1 d-sm-none"
-            style={{ outline: "none", boxShadow: "none" }}
-            onClick={this.handleShowInput}
-          >
-            <i
-              className="material-icons-round"
-              style={{
-                fontSize: "30px",
-                color: "rgba(255, 255, 255, 0.5)"
-                // cursor: "pointer"
-              }}
+          {this.props.user && (
+            <button
+              type="button"
+              className="btn p-0 m-0 d-flex align-items-center pr-2 pl-0 pb-1 pt-1 d-sm-none"
+              style={{ outline: "none", boxShadow: "none" }}
+              onClick={this.handleShowInput}
             >
-              search
-            </i>
-          </button>
+              <i
+                className="material-icons-round"
+                style={{
+                  fontSize: "30px",
+                  color: "rgba(255, 255, 255, 0.5)"
+                  // cursor: "pointer"
+                }}
+              >
+                search
+              </i>
+            </button>
+          )}
           {this.props.user && this.state.showInput && (
             <form className="form-inline mx-auto d-sm-none">
               <div className="dropdown show">

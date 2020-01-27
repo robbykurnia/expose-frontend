@@ -31,8 +31,8 @@ class Profile extends Component {
   }
 
   componentDidMount() {
-    console.log("call componentDidMount");
-    console.log("this.state.lastId", this.state.lastId);
+    // console.log("call componentDidMount");
+    // console.log("this.state.lastId", this.state.lastId);
     if (!this.props.match.params.username) {
       if (this.props.user)
         return (window.location = `/profile/${this.props.user.user.username}`);
@@ -44,19 +44,19 @@ class Profile extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("call componentDidUpdate");
-    console.log("this.state.lastId", this.state.lastId);
+    // console.log("call componentDidUpdate");
+    // console.log("this.state.lastId", this.state.lastId);
     // re-fetching data in current page with different user (not full reload)
     if (prevProps.match.params.username !== this.props.match.params.username) {
-      console.log("call componentDidUpdate different user");
-      console.log(
-        "prevProps.match.params.username",
-        prevProps.match.params.username
-      );
-      console.log(
-        "this.props.match.params.username",
-        this.props.match.params.username
-      );
+      // console.log("call componentDidUpdate different user");
+      // console.log(
+      //   "prevProps.match.params.username",
+      //   prevProps.match.params.username
+      // );
+      // console.log(
+      //   "this.props.match.params.username",
+      //   this.props.match.params.username
+      // );
       this.setState({
         lastId: null,
         profile: [],
@@ -71,11 +71,11 @@ class Profile extends Component {
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
-    console.log("call componentWillReceiveProps");
-    console.log("this.state.lastId", this.state.lastId);
+    // console.log("call componentWillReceiveProps");
+    // console.log("this.state.lastId", this.state.lastId);
     // re-fetching data in current page with same user (not full reload)
     if (nextProps.location.state === this.props.match.params.username) {
-      console.log("call componentWillReceiveProps same User");
+      // console.log("call componentWillReceiveProps same User");
       this.setState({
         lastId: null,
         profile: [],
@@ -99,16 +99,16 @@ class Profile extends Component {
   // }
 
   handleGetPosts = () => {
-    console.log("call handleGetPosts");
-    console.log("this.state.lastId", this.state.lastId);
+    // console.log("call handleGetPosts");
+    // console.log("this.state.lastId", this.state.lastId);
     let lastId = this.state.lastId;
     const differentUser =
       this.state.usernameThisProfile !== this.props.match.params.username;
-    console.log(this.state.usernameThisProfile, this.state.usernameThisProfile);
+    // console.log(this.state.usernameThisProfile, this.state.usernameThisProfile);
     if (differentUser) {
       lastId = null;
     }
-    console.log("this.state.lastId bawah", this.state.lastId);
+    // console.log("this.state.lastId bawah", this.state.lastId);
     this.getposts(this.state.lastId);
   };
 
@@ -351,12 +351,12 @@ class Profile extends Component {
 
   getposts(lastId) {
     const username = this.props.match.params.username;
-    console.log("getposts");
-    console.log("lastId", lastId);
-    console.log("username", username);
+    // console.log("getposts");
+    // console.log("lastId", lastId);
+    // console.log("username", username);
     getPosts(username, lastId).then(data => {
       try {
-        console.log("handleGetPosts", data);
+        // console.log("handleGetPosts", data);
         const feeds = data.data.getUser;
         const posts = data.data.getUser.somePosts;
         const comments = data.data.getUser.somePosts;
@@ -375,11 +375,11 @@ class Profile extends Component {
 
         // const filerPosts = olderPosts.filter();
         // console.log("filerPosts", filerPosts);
-        console.log("_posts", posts);
-        console.log("_olderPosts", olderPosts);
-        console.log("_uniqueFeedsId", uniqueFeedsId);
-        console.log("_bankFeedsId", bankFeedsId);
-        console.log("_isUnique", isUnique);
+        // console.log("_posts", posts);
+        // console.log("_olderPosts", olderPosts);
+        // console.log("_uniqueFeedsId", uniqueFeedsId);
+        // console.log("_bankFeedsId", bankFeedsId);
+        // console.log("_isUnique", isUnique);
         if (!isUnique) {
           return;
         }
@@ -439,7 +439,7 @@ class Profile extends Component {
   }
 
   render() {
-    console.log("this.state in render:", this.state);
+    // console.log("this.state in render:", this.state);
     // if (!this.props.user) return <Redirect to="/login" />;
     // if (service.getCurrentUser()) return <Redirect to="/feed" />;
 

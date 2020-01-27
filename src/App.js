@@ -21,7 +21,7 @@ class App extends Component {
 
   render() {
     const { user } = this.state;
-    console.log("username di render: ", user);
+    // console.log("username di render: ", user);
     return (
       <div>
         <NavBar user={user} />

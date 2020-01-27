@@ -10,7 +10,7 @@ class SearchPerson extends Component {
   }
 
   componentDidMount() {
-    console.log("call componentDidMount");
+    // console.log("call componentDidMount");
     this.handleGetUser();
   }
 

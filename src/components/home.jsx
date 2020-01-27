@@ -59,7 +59,7 @@ class Home extends Component {
   UNSAFE_componentWillReceiveProps(nextProps) {
     // re-fetching data in current page with same user (not full reload)
     if (nextProps.location.state === "news") {
-      console.log("call componentWillReceiveProps same User");
+      // console.log("call componentWillReceiveProps same User");
       this.setState({
         lastId: null,
         profile: [],
@@ -277,7 +277,7 @@ class Home extends Component {
     const username = this.props.match.params.username;
     getAllPosts(lastId).then(data => {
       try {
-        console.log("handleGetPosts", data);
+        // console.log("handleGetPosts", data);
         const feeds = data.data;
         const posts = data.data.getSelectedPost;
         const comments = data.data.getSelectedPost;
