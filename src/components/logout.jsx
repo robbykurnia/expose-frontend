@@ -5,7 +5,7 @@ class Logout extends Component {
   componentDidMount() {
     service.logout();
 
-    window.location = "/";
+    window.location = "/login";
   }
   render() {
     return null;

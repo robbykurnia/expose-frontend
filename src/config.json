@@ -1,3 +1,3 @@
 {
-  "apiUrl": "http://localhost:4000/graphql"
+  "apiUrl": "https://ancient-taiga-80850.herokuapp.com/graphql"
 }
